@@ -51,25 +51,14 @@ class Array(object):
             self.data.append(None)
 
         if len(self.data) - self.size > 5:
-            print('length before loop', len(self.data))
-            print('length before loop', self.data)
-            'allocate data into new array'
-            'copy the old array to the new data array -5'
-            self.tempData = []
+            self.tempData = [] #creates a tempData arrayObject
+
             for i in range(len(self.data)-5):
-                self.tempData.append(self.data[i])
+                self.tempData.append(self.data[i]) #assigning the data values to the tempData array
 
-            print('length after loop', len(self.data))
-            print('tempData lenght', len(self.tempData))
-            self.data = self.tempData
-            del self.tempData
+            self.data = self.tempData #creating a new data array with smaller length
+            del self.tempData #deleting tempData to not have unnecessary memory allocation being useds
 
-            print('data after reassigned', len(self.data))
-
-
-
-        'compare len(self.data) - self.size > 5'
-        'then delete the 5 items by calling the memcpy'
 
 
 
