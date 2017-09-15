@@ -24,13 +24,23 @@ class Array(object):
         
         
     def _check_increase(self):
-        '''
-        Checks whether the array is full and needs to increase by chunk size
-        in preparation for adding an item to the array.
-        '''
-        for slot in self.data:
-            if slot == None: # check if the slot is available
-                break # break so that the item isn't added to othe slots
+        '''Checks whether the array is full and needs to increase by chunk size in preparation for adding an item to
+        the array.'''
+
+        arrayFull = False #the array isn't full
+
+        #check every slot of the array
+        #once o
+
+        for index, slot in enumerate(self.data):
+            if slot == None:
+                break
+
+        if index == len(self.data):
+            if arrayFull == True:
+                'add 5 to the array'
+                self.size = 5
+
         
         
     def _check_decrease(self):
@@ -49,6 +59,12 @@ class Array(object):
         copy all the previous array object + the new item
         '''
         self._check_increase()
+        self.data[self.size] = item
+        self.size += 1
+        print(self.data)
+        print(len(self.data))
+
+
         # for slot in self.data:
         #     if slot == None: # check if the slot is available
         #         slot = item # assign the item to the available slot
@@ -56,8 +72,8 @@ class Array(object):
 
 
 
-        print('my size', self.size)
-        print('array', self.data)
+        # print('my size', self.size)
+        # print('array', self.data)
 
         
         
