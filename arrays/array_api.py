@@ -7,7 +7,7 @@ class Array(object):
     '''
     
     def __init__(self, initial_size=10, chunk_size=5):
-        '''Creates an array with an intial size.'''
+        '''Creates an array with an initial size.'''
         self.data = []
         self.size = 0
         for i in range(10):
@@ -27,19 +27,22 @@ class Array(object):
         '''Checks whether the array is full and needs to increase by chunk size in preparation for adding an item to
         the array.'''
 
-        arrayFull = False #the array isn't full
-
-        #check every slot of the array
-        #once o
-
         for index, slot in enumerate(self.data):
             if slot == None:
                 break
 
-        if index == len(self.data):
-            if arrayFull == True:
-                'add 5 to the array'
-                self.size = 5
+        if self.size == len(self.data):
+            'increment by 5'
+            for i in range(5):
+                self.data.append(None)
+
+            # self.tempData = []
+            # for i in range(len(self.data)):
+            #     self.tempData.append(self.data[i])
+            #
+            #     if len(self.tempData) == len(self.data):
+            #         self.data
+
 
         
         
