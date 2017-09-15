@@ -47,17 +47,18 @@ class Array(object):
         If a decrease is warranted, it should be done by allocating a new array and copying the
         data into it (don't allocate multiple arrays if multiple chunks need decreasing).
         '''
-        for i in range(5):
+        for i in range(10):
             self.data.append(None)
 
-        if len(self.data) - self.size > 5:
+        while len(self.data) - self.size > 5:
             self.tempData = [] #creates a tempData arrayObject
 
             for i in range(len(self.data)-5):
                 self.tempData.append(self.data[i]) #assigning the data values to the tempData array
 
             self.data = self.tempData #creating a new data array with smaller length
-            del self.tempData #deleting tempData to not have unnecessary memory allocation being useds
+
+        del self.tempData #deleting tempData to not have unnecessary memory allocation being useds
 
 
 
