@@ -12,6 +12,8 @@ class Array(object):
         self.size = 0
         for i in range(10):
             self.data.append(None)
+
+        print('')
         
         
     def debug_print(self):
@@ -36,13 +38,6 @@ class Array(object):
             for i in range(5):
                 self.data.append(None)
 
-            # self.tempData = []
-            # for i in range(len(self.data)):
-            #     self.tempData.append(self.data[i])
-            #
-            #     if len(self.tempData) == len(self.data):
-            #         self.data
-
 
         
         
@@ -52,34 +47,41 @@ class Array(object):
         If a decrease is warranted, it should be done by allocating a new array and copying the
         data into it (don't allocate multiple arrays if multiple chunks need decreasing).
         '''
+        for i in range(5):
+            self.data.append(None)
+
+        if len(self.data) - self.size > 5:
+            print('length before loop', len(self.data))
+            print('length before loop', self.data)
+            'allocate data into new array'
+            'copy the old array to the new data array -5'
+            self.tempData = []
+            for i in range(len(self.data)-5):
+                self.tempData.append(self.data[i])
+
+            print('length after loop', len(self.data))
+            print('tempData lenght', len(self.tempData))
+            self.data = self.tempData
+            del self.tempData
+
+            print('data after reassigned', len(self.data))
+
+
+
+        'compare len(self.data) - self.size > 5'
+        'then delete the 5 items by calling the memcpy'
+
+
+
             
         
     def add(self, item):
         '''Adds an item to the end of the array, allocating a larger array if necessary.'''
-        '''
-        check the size of the array before adding a new array
-        if the array is full then add 5 to the current size (chunk size)
-        copy all the previous array object + the new item
-        '''
         self._check_increase()
         self.data[self.size] = item
         self.size += 1
-        print(self.data)
-        print(len(self.data))
 
 
-        # for slot in self.data:
-        #     if slot == None: # check if the slot is available
-        #         slot = item # assign the item to the available slot
-        #         break # break so that the item isn't added to othe slots
-
-
-
-        # print('my size', self.size)
-        # print('array', self.data)
-
-        
-        
     def insert(self, index, item):
         '''Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.'''
         
@@ -115,4 +117,7 @@ def memcpy(dest, source, size):
     '''
     Copies items from one array to another.  This is similar to C's memcpy function.
     '''
+    # self.tempData = []
+    # for i in range(len(self.data)):
+    #     self.tempData.append(self.data[i])
         
