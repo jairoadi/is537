@@ -103,13 +103,15 @@ class Array(object):
         '''Sets the given item at the given index. Throws an exception if the index is not within the bounds of the array.'''
         inRange = False
 
-        for i in range(len(self.data)):
+        for i in range(self.size):
             if i == index:
                 self.data[i] = item
                 inRange = True
 
         if not inRange:
             print('Error:', index, 'is not within the bounds of the current array.')
+        else:
+            print('SET', index, item)
 
         
     def get(self, index):
@@ -117,7 +119,7 @@ class Array(object):
         inRange = False
         getValue = None
 
-        for i in range(len(self.data)):
+        for i in range(self.size):
             if i == index:
                 getValue = self.data[i]
                 inRange = True
