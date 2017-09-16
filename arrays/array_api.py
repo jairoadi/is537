@@ -18,7 +18,7 @@ class Array(object):
         
     def debug_print(self):
         '''Prints a representation of the entire allocated space, including unused spots.'''
-        print(self.size + ' of ' + self.data + ' >>> ' + ', '.join(self))
+        print(self.size , 'of' , len(self.data) , '>>>' , self.data)
         
         
     def _check_bounds(self, index):
@@ -64,6 +64,8 @@ class Array(object):
         self._check_increase()
         self.data[self.size] = item
         self.size += 1
+
+        print('ADD', item)
 
 
     def insert(self, index, item):
@@ -112,11 +114,30 @@ class Array(object):
         
     def get(self, index):
         '''Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the array.'''
-        
+        inRange = False
+        getValue = None
+
+        for i in range(len(self.data)):
+            if i == index:
+                getValue = self.data[i]
+                inRange = True
+
+        if not inRange:
+            print('Error:', index, 'is not within the bounds of the current array.')
+        else:
+            print('GET', getValue)
     
     def delete(self, index):
         '''Deletes the item at the given index, decreasing the allocated memory if needed.  Throws an exception if the index is not within the bounds of the array.'''
-        
+        # for i in range(10):
+        #     self.data.append(None)
+
+        for i in range(len(self.data)):
+            if i == index:
+                self.data[i] = None
+                break
+
+        self._check_decrease()
         
     def swap(self, index1, index2):
         '''Swaps the values at the given indices.'''
