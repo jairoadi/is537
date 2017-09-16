@@ -81,7 +81,6 @@ class Array(object):
 
 
 
-
         while iCount < int(index):
             self.tempData.append(self.data[iCount])
             iCount += 1
@@ -97,15 +96,19 @@ class Array(object):
 
         del self.tempData
 
-
-        print('at the end ', len(self.data))
-
-
-
     
     def set(self, index, item):
         '''Sets the given item at the given index. Throws an exception if the index is not within the bounds of the array.'''
-        
+        inRange = False
+
+        for i in range(len(self.data)):
+            if i == index:
+                self.data[i] = item
+                inRange = True
+
+        if not inRange:
+            print('Error:', index, 'is not within the bounds of the current array.')
+
         
     def get(self, index):
         '''Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the array.'''
