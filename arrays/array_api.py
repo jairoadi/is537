@@ -10,10 +10,9 @@ class Array(object):
         '''Creates an array with an initial size.'''
         self.data = []
         self.size = 0
+        self.increaseNeeded = None
         for i in range(10):
             self.data.append(None)
-
-        print('')
         
         
     def debug_print(self):
@@ -51,13 +50,14 @@ class Array(object):
                 self.tempData.append(self.data[i]) #assigning the data values to the tempData array
 
             self.data = self.tempData #creating a new data array with smaller length
-            self.check_size()
+            self.countNone -= 5
 
         del self.tempData #deleting tempData to not have unnecessary memory allocation being used
 
         
     def add(self, item):
         '''Adds an item to the end of the array, allocating a larger array if necessary.'''
+        self.increaseNeeded = True
         self.check_size()
         self.data[self.size] = item
         self.size += 1
@@ -68,6 +68,7 @@ class Array(object):
     def insert(self, index, item):
         '''Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.'''
         print('INSERT', index,',',item)
+        self.increaseNeeded = True
         self.check_size()
 
         iCount = 0
@@ -133,36 +134,57 @@ class Array(object):
     def delete(self, index):
         '''Deletes the item at the given index, decreasing the allocated memory if needed.  Throws an exception if the index is not within the bounds of the array.'''
         print('DELETE',index)
-        iCount = 0
-        self.tempData = []
-
-        if index > self.size:
-            print('Error:', index, 'is not within the bounds of the current array.')
-            return
-
-        for i in range(len(self.data)):
+        self.increaseNeeded = False
+        for i, value in enumerate(self.data):
             if i == index:
                 self.data[i] = None
-                break
-            iCount += 1
-
-        for i,value in enumerate(self.data):
-            if value != None:
-                self.tempData.append(self.data[i])
-
-        while len(self.tempData) < len(self.data):
-            self.tempData.append(None)
-
-
-        self.data = self.tempData
-        del self.tempData
-        self.countNone = 0
+                self.size = 0
 
         for i, value in enumerate(self.data):
             if value == None:
-                self.countNone += 1
+                if i+1 < len(self.data) and self.data[i+1] != None : #& self.data[i+1] != None
+                    temp = self.data[i+1]
+                    self.data[i+1] = value
+                    self.data[i] = temp
 
+        self.check_size()
         self._check_decrease()
+
+
+
+
+
+
+        # iCount = 0
+        # self.tempData = []
+        #
+        # if index > self.size:
+        #     print('Error:', index, 'is not within the bounds of the current array.')
+        #     return
+        #
+        # for i in range(len(self.data)):
+        #     if i == index:
+        #         self.data[i] = None
+        #         break
+        #     iCount += 1
+        #
+        # for i,value in enumerate(self.data):
+        #     if value != None:
+        #         self.tempData.append(self.data[i])
+        #
+        # while len(self.tempData) < len(self.data):
+        #     self.tempData.append(None)
+        #
+        #
+        # self.data = self.tempData
+        # del self.tempData
+        # self.countNone = 0
+        #
+        # for i, value in enumerate(self.data):
+        #     if value == None:
+        #         self.countNone += 1
+        #
+        # self._check_decrease()
 
         
     def swap(self, index1, index2):
@@ -173,15 +195,17 @@ class Array(object):
         # check size
         self.countNone = 0
         self.size = 0
-        for i in range(len(self.data)):
+        for i, value in enumerate(self.data):
             if self.data[i] != None:
                 self.size += 1
             else:
                 self.countNone += 1
 
 
-        if self.size == len(self.data):
-            self._check_increase()
+        if self.size == len(self.data) and self.increaseNeeded == True:
+             self._check_increase()
+
+
         
         
 ###################################################
