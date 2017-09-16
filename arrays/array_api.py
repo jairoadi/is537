@@ -156,9 +156,12 @@ class Array(object):
 
         self.data = self.tempData
         del self.tempData
+        self.countNone = 0
 
+        for i, value in enumerate(self.data):
+            if value == None:
+                self.countNone += 1
 
-        self.check_size()
         self._check_decrease()
 
         
