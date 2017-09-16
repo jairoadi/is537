@@ -38,8 +38,6 @@ class Array(object):
             for i in range(5):
                 self.data.append(None)
 
-
-        
         
     def _check_decrease(self):
         '''
@@ -47,23 +45,19 @@ class Array(object):
         If a decrease is warranted, it should be done by allocating a new array and copying the
         data into it (don't allocate multiple arrays if multiple chunks need decreasing).
         '''
-        for i in range(10):
-            self.data.append(None)
+
+        self.tempData = []  # creates a tempData arrayObject
 
         while len(self.data) - self.size > 5:
-            self.tempData = [] #creates a tempData arrayObject
+
 
             for i in range(len(self.data)-5):
                 self.tempData.append(self.data[i]) #assigning the data values to the tempData array
 
             self.data = self.tempData #creating a new data array with smaller length
 
-        del self.tempData #deleting tempData to not have unnecessary memory allocation being useds
+        del self.tempData #deleting tempData to not have unnecessary memory allocation being used
 
-
-
-
-            
         
     def add(self, item):
         '''Adds an item to the end of the array, allocating a larger array if necessary.'''
@@ -74,10 +68,43 @@ class Array(object):
 
     def insert(self, index, item):
         '''Inserts an item at the given index, shifting remaining items right and allocating a larger array if necessary.'''
-        
+        countNone = 0
+        iCount = 0
+        self.tempData = []
+
+        for i in self.data:
+            if i is None:
+                countNone += 1
+
+        if countNone is 0:
+            self._check_increase()
+
+
+
+
+        while iCount < int(index):
+            self.tempData.append(self.data[iCount])
+            iCount += 1
+
+        self.tempData.append(item)
+
+        while iCount < len(self.data)- 1:
+            self.tempData.append(self.data[iCount])
+
+            iCount += 1
+
+        self.data = self.tempData
+
+        del self.tempData
+
+
+        print('at the end ', len(self.data))
+
+
+
     
     def set(self, index, item):
-        '''Sets the given item at the given index.  Throws an exception if the index is not within the bounds of the array.'''
+        '''Sets the given item at the given index. Throws an exception if the index is not within the bounds of the array.'''
         
         
     def get(self, index):
