@@ -134,6 +134,10 @@ class Array(object):
     def delete(self, index):
         '''Deletes the item at the given index, decreasing the allocated memory if needed.  Throws an exception if the index is not within the bounds of the array.'''
         print('DELETE',index)
+        if index > self.size:
+            print('Error:', index, 'is not within the bounds of the current array.')
+            return
+
         self.increaseNeeded = False
         for i, value in enumerate(self.data):
             if i == index:
@@ -189,6 +193,26 @@ class Array(object):
         
     def swap(self, index1, index2):
         '''Swaps the values at the given indices.'''
+        temp1 = None
+        temp2 = None
+
+        for i, value in enumerate(self.data):
+            if i == index1:
+                temp1 = value
+            if i == index2:
+                temp2 = value
+            if temp1 != None and temp2 != None:
+                for j, swap in enumerate(self.data):
+                    if j == index1:
+                        self.data[j] = temp2
+                    if j == index2:
+                        self.data[j] = temp1
+                return
+
+            # temp = self.data[i+1]
+            # self.data[i+1] = value
+            # self.data[i] = temp
+
 
     def check_size(self):
         '''checks is there are spaces in the array'''
