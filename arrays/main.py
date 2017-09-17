@@ -7,6 +7,23 @@ with open("/Users/jairof/Documents/is537/arrays/data_example.csv", 'r') as csvfi
     linenum = 0
     for row in reader:
         print(str(linenum)+":"+str(row[0])+","+str(row[1])+","+str(row[2]))
+        if str(row[0]) == 'CREATE':
+            array = Array();'creating an object array'
+        elif  str(row[0]) == 'ADD':
+            array.add(str(row[1]))
+        elif  str(row[0]) == 'DEBUG':
+            array.debug_print()
+        elif  str(row[0]) == 'SET':
+            array.set(int(row[1]),str(row[2]))
+        elif  str(row[0]) == 'GET':
+            array.get(int(row[1]))
+        elif  str(row[0]) == 'DELETE':
+            array.delete(int(row[1]))
+        elif str(row[0]) == 'INSERT':
+            array.insert(int(row[1]),str(row[2]))
+        elif str(row[0]) == 'SWAP':
+            array.swap(int(row[1]), str(row[2]))
+
         linenum += 1
 
 # objectArray = Array(); 'creating an object array'
