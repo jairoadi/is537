@@ -193,6 +193,7 @@ class Array(object):
         
     def swap(self, index1, index2):
         '''Swaps the values at the given indices.'''
+        print('Swap', index1, ',', index2)
         temp1 = None
         temp2 = None
 
