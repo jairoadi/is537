@@ -1,0 +1,161 @@
+/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 /Users/jairof/Documents/is537/arrays/main.py
+0:CREATE,,
+1:DEBUG,,
+DEBUG
+0 of 10 >>> [None, None, None, None, None, None, None, None, None, None]
+2:ADD,a,
+ADD a
+3:ADD,e,
+ADD e
+4:ADD,r,
+ADD r
+5:ADD,o,
+ADD o
+6:ADD,I,
+ADD I
+7:ADD,o,
+ADD o
+8:ADD,d,
+ADD d
+9:ADD,u,
+ADD u
+10:ADD,s,
+ADD s
+11:ADD,a,
+ADD a
+12:DEBUG,,
+DEBUG
+10 of 10 >>> ['a', 'e', 'r', 'o', 'I', 'o', 'd', 'u', 's', 'a']
+13:ADD,u,
+ADD u
+14:DEBUG,,
+DEBUG
+11 of 15 >>> ['a', 'e', 'r', 'o', 'I', 'o', 'd', 'u', 's', 'a', 'u', None, None, None, None]
+15:SET,4,S
+SET 4 , S
+16:SET,12,M
+SET 12 , M
+Error: 12 is not within the bounds of the current array.
+17:DEBUG,,
+DEBUG
+11 of 15 >>> ['a', 'e', 'r', 'o', 'S', 'o', 'd', 'u', 's', 'a', 'u', None, None, None, None]
+18:GET,8,
+GET 8
+s
+19:GET,11,
+GET 11
+Error: 11 is not within the bounds of the current array.
+20:INSERT,21,b
+INSERT 21 , b
+Error: 21 is not within the bounds of the current array.
+21:INSERT,4,i
+INSERT 4 , i
+22:INSERT,4,L
+INSERT 4 , L
+23:INSERT,4,w
+INSERT 4 , w
+24:INSERT,4,x
+INSERT 4 , x
+25:INSERT,4,T
+INSERT 4 , T
+26:INSERT,4,y
+INSERT 4 , y
+27:DEBUG,,
+DEBUG
+17 of 20 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'x', 'w', 'L', 'i', 'S', 'o', 'd', 'u', 's', 'a', 'u', None, None, None]
+28:DELETE,6,
+DELETE 6
+29:DEBUG,,
+DEBUG
+16 of 20 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'L', 'i', 'S', 'o', 'd', 'u', 's', 'a', 'u', None, None, None, None]
+30:DELETE,10,
+DELETE 10
+31:DEBUG,,
+DEBUG
+15 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'L', 'i', 'S', 'd', 'u', 's', 'a', 'u']
+32:DELETE,11,
+DELETE 11
+33:DEBUG,,
+DEBUG
+14 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'L', 'i', 'S', 'd', 's', 'a', 'u', None]
+34:DELETE,7,
+DELETE 7
+35:DEBUG,,
+DEBUG
+13 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 's', 'a', 'u', None, None]
+36:DELETE,13,
+DELETE 13
+37:DEBUG,,
+DEBUG
+13 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 's', 'a', 'u', None, None]
+38:SWAP,1,3
+Swap 1 , 3
+39:SWAP,7,8
+Swap 7 , 8
+40:DEBUG,,
+DEBUG
+13 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 's', 'a', 'u', None, None]
+41:SWAP,0,13
+Swap 0 , 13
+42:DELETE,10,
+DELETE 10
+43:DEBUG,,
+DEBUG
+12 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 'a', 'u', None, None, None]
+44:ADD,u,
+ADD u
+45:ADD,h,
+ADD h
+46:DEBUG,,
+DEBUG
+14 of 15 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 'a', 'u', 'u', 'h', None]
+47:INSERT,12,p
+INSERT 12 , p
+48:ADD,8,t
+ADD 8
+49:ADD,T,
+ADD T
+50:ADD,g,
+ADD g
+51:ADD,h,
+ADD h
+52:ADD,t,
+ADD t
+53:DEBUG,,
+DEBUG
+20 of 20 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 'a', 'u', 'p', 'u', 'h', '8', 'T', 'g', 'h', 't']
+54:INSERT,25,y
+INSERT 25 , y
+Error: 25 is not within the bounds of the current array.
+55:SET,15,o
+SET 15 , o
+56:INSERT,27,G
+INSERT 27 , G
+Error: 27 is not within the bounds of the current array.
+57:DEBUG,,
+DEBUG
+20 of 25 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 'a', 'u', 'p', 'u', 'h', 'o', 'T', 'g', 'h', 't', None, None, None, None, None]
+58:SET,10,D
+SET 10 , D
+59:SWAP,16,13
+Swap 16 , 13
+60:DEBUG,,
+DEBUG
+20 of 25 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'i', 'S', 'd', 'D', 'u', 'p', 'u', 'h', 'o', 'T', 'g', 'h', 't', None, None, None, None, None]
+61:INSERT,8,F
+INSERT 8 , F
+62:INSERT,7,o
+INSERT 7 , o
+63:INSERT,13,t
+INSERT 13 , t
+64:SET,14,e
+SET 14 , e
+65:SWAP,0,9
+Swap 0 , 9
+66:SWAP,3,13
+Swap 3 , 13
+67:DEBUG,,
+DEBUG
+23 of 25 >>> ['a', 'e', 'r', 'o', 'y', 'T', 'w', 'o', 'i', 'F', 'S', 'd', 'D', 't', 'e', 'p', 'u', 'h', 'o', 'T', 'g', 'h', 't', None, None]
+
+Process finished with exit code 0
