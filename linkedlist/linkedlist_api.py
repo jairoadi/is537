@@ -16,7 +16,12 @@ class LinkedList(object):
         
     def _get_node(self, index):
         '''Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.'''
+        'try catch missing'
+        n = self.head
+        for i in range(index):
+            n = n.next
 
+        return n.value
         
     def add(self, item):
         '''Adds an item to the end of the linked list.'''
