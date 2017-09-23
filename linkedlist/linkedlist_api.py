@@ -8,6 +8,9 @@ class LinkedList(object):
     
     def __init__(self):
         '''Creates a linked list.'''
+        self.head = None 'head just points to a single node'
+        self.size = 0
+
         
     def debug_print(self):
         '''Prints a representation of the entire list.'''
@@ -16,15 +19,21 @@ class LinkedList(object):
         
     def _get_node(self, index):
         '''Retrieves the Node object at the given index.  Throws an exception if the index is not within the bounds of the linked list.'''
-        'try catch missing'
-        n = self.head
-        for i in range(index):
-            n = n.next
-
-        return n.value
+        'does the same thing over and over'
+        ' try catch if index < 0 or index > size == error'
+        try:
+            n = self.head
+            for i in range(index):
+                n = n.next
+            return n.value
+        except (IndexError, ValueError):
+            print('Error: '+ index +' is not within the bounds of the current list.')
         
     def add(self, item):
         '''Adds an item to the end of the linked list.'''
+        #head = Node(3)
+        #head.next = Node(4)
+        #head.next.next = Node(5)
         
         
     def insert(self, index, item):
@@ -37,11 +46,13 @@ class LinkedList(object):
         
     def get(self, index):
         '''Retrieves the item at the given index.  Throws an exception if the index is not within the bounds of the linked list.'''
-        
+        self._get_node(index)
+
     
     def delete(self, index):
         '''Deletes the item at the given index. Throws an exception if the index is not within the bounds of the linked list.'''
-        
+        #delete the next pointer, reassign the pointer
+        #get
         
     def swap(self, index1, index2):
         '''Swaps the values at the given indices.'''
